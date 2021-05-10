@@ -1,17 +1,37 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Well-ify
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" [routerLink]="['/settings']" routerDirection="forward">
+        <ion-icon name="settings-outline" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="ion-text-start">
+          <h3>Inspiration</h3>
+          If you ever need some quick inspiration, your in the right place. Click the button to generate an
+          inspirational quote.If you want another, just click it again!
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+    <ion-button (click)=getQuote()> Inspire me please! </ion-button>
+
+
+  <br>
+
+  <ion-card [hidden]=hidden>
+    <h5>{{quoteBody}}</h5><br><h4> {{quoteAuthor}} </h4>
+  </ion-card>
 </ion-content>

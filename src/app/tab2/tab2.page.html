@@ -1,17 +1,55 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Well-ify
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" [routerLink]="['/settings']" routerDirection="forward">
+        <ion-icon name="settings-outline" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" >
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="ion-text-start">
+          <h3>Mood Check</h3>
+          <h6>Our day to day life can be busy, its always good to take a moment to check how your really feeling. Let us know:</h6>
+          </div>
+      </ion-col> 
+      </ion-row>
+  </ion-grid>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
-</ion-content>
+  <ion-card-content>  
+
+    <ion-list>
+      <ion-radio-group [(ngModel)]= "myMood">
+      
+        <ion-item >
+          <ion-label >Amazing!</ion-label>
+          <ion-radio value="amazing"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Pretty good!</ion-label>
+          <ion-radio value="pretty good"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Had better days!</ion-label>
+          <ion-radio value="had better days"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Horrible!</ion-label>
+          <ion-radio value="horrible"></ion-radio>
+        </ion-item>
+  
+      </ion-radio-group>
+    </ion-list>
+    <ion-button (click)=updateMood()>Update</ion-button>
+  </ion-card-content> 
+</ion-content> 

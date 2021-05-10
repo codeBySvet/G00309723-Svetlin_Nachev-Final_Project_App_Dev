@@ -1,17 +1,46 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Well-ify
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" [routerLink]="['/settings']" routerDirection="forward">
+        <ion-icon name="settings-outline" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" >
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="ion-text-start">
+          <h3>{{titleMessage}}</h3>
+          <br>Welcome to the only welness app you will ever need.<br>
+          {{paragraph1}}
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-card>
+    <h4>Weather Today: <img style="float:right" widht=90 height=90 src={{iconUrl}}></h4>
+
+    Temperature: {{temp}} °C
+    <br><br>
+    Humidity: {{humidity}} %
+    <br><br>
+    WindSpeed: {{windSpeed}} m/s
+    <br><br>
+    Description: {{description}}
+    <br><br>
+  </ion-card>
+
+
+  <div class="ion-text-start" [hidden]=hidden>
+    You said you feel .... {{userMood}} Thanks for letting us know.
+  </div>
+
 </ion-content>

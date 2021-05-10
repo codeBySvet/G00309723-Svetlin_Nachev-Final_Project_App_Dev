@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {Storage} from '@ionic/storage'
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +8,21 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  myMood:string="How are you feeling?"
+  moodStatus:string;
+
+  constructor(private Storage:Storage) {}
+
+
+ngOnInit(){
+
+  //gets the current value of the mood from strorage, mood is set on the "Mood" page of the app
+  this.Storage.get("mood")
+  .then((data)=>{
+    this.myMood=data;}
+  )
+}
 
 }
+
+
